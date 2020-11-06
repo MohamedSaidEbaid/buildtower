@@ -8,19 +8,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int times = 0;
 
-  Color a1;
-  Color a2;
-  Color a3;
-  Color a4 = Colors.green;
-  Color a5 = Colors.red;
-  Color a6 = Colors.blue;
+  String a1;
+  String a2;
+  String a3;
+  String a4 = 'assets/orange.png';
+  String a5 = 'assets/red.png';
+  String a6 = 'assets/blue.png';
 
-  Color b1 = Colors.red;
-  Color b2;
-  Color b3;
-  Color b4;
-  Color b5 = Colors.green;
-  Color b6 = Colors.blue;
+  String b1 = 'assets/red.png';
+  String b2;
+  String b3;
+  String b4;
+  String b5 = 'assets/orange.png';
+  String b6 = 'assets/blue.png';
 
   @override
   Widget build(BuildContext context) {
@@ -29,103 +29,98 @@ class _HomePageState extends State<HomePage> {
         title: Text('Build Tower'),
         backgroundColor: Colors.black,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blueAccent),
-                  ),
-                  child: TowerItem(
-                    color: a1,
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blueAccent),
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      TowerItem(
-                        color: a2,
-                      ),
-                      TowerItem(
-                        color: a3,
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blueAccent),
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      TowerItem(
-                        color: a4,
-                      ),
-                      TowerItem(
-                        color: a5,
-                      ),
-                      TowerItem(
-                        color: a6,
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            child: Text(
-              'Movements $times /3',
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
-            ),
-          ),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                Container(
+      body: Container(
+        color: Colors.deepPurple,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Container(
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      border: Border.all(color: Colors.blueAccent),
+                        image: DecorationImage(
+                      image: AssetImage('assets/big.png'),
+                      fit: BoxFit.fill,
+                    )),
+                    child: Column(
+                      children: <Widget>[
+                        TowerItem(
+                          image: a4,
+                        ),
+                        TowerItem(
+                          image: a5,
+                        ),
+                        TowerItem(
+                          image: a6,
+                        )
+                      ],
                     ),
-                    child: _buildDragTarget(b1, 'B1')),
-                Container(
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blueAccent),
                   ),
-                  child: _buildDragTarget(b2, 'B2'),
-                ),
-                Container(
-                  padding: EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blueAccent),
-                  ),
-                  child: _buildDragTarget(b4, 'B3'),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+            Container(
+              width: MediaQuery.of(context).size.width * 3 / 4,
+              height: 60,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                image: AssetImage('assets/movements.png'),
+                fit: BoxFit.fill,
+              )),
+              child: Center(
+                child: Text(
+                  'Movements $times /3',
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+                ),
+              ),
+            ),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  Container(
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                        image: AssetImage('assets/small.png'),
+                        fit: BoxFit.fill,
+                      )),
+                      child: _buildDragTarget(b1, 'B1')),
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                      image: AssetImage('assets/mid.png'),
+                      fit: BoxFit.fill,
+                    )),
+                    child: _buildDragTarget(b2, 'B2'),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                      image: AssetImage('assets/big.png'),
+                      fit: BoxFit.fill,
+                    )),
+                    child: _buildDragTarget(b4, 'B3'),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 
-  Widget _buildDragTarget(Color aState, String s) {
+  Widget _buildDragTarget(String aState, String s) {
     return DragTarget<String>(
       builder: (BuildContext context, List<String> incoming, List rejected) {
         if (s == 'B1') {
@@ -136,10 +131,10 @@ class _HomePageState extends State<HomePage> {
               data: 'B1',
               child: Column(
                 children: <Widget>[
-                  TowerItem(color: b1),
+                  TowerItem(image: b1),
                 ],
               ),
-              feedback: TowerItem(color: b1),
+              feedback: TowerItem(image: b1),
               childWhenDragging: Column(
                 children: <Widget>[
                   TowerItem(),
@@ -158,10 +153,10 @@ class _HomePageState extends State<HomePage> {
                   data: 'B2',
                   child: Column(
                     children: <Widget>[
-                      TowerItem(color: b2),
+                      TowerItem(image: b2),
                     ],
                   ),
-                  feedback: TowerItem(color: b2),
+                  feedback: TowerItem(image: b2),
                   childWhenDragging: Column(
                     children: <Widget>[
                       TowerItem(),
@@ -171,7 +166,7 @@ class _HomePageState extends State<HomePage> {
                     () {},
                   ),
                 ),
-                TowerItem(color: b3),
+                TowerItem(image: b3),
               ],
             );
           } else if (b3 != null) {
@@ -182,10 +177,10 @@ class _HomePageState extends State<HomePage> {
                   data: 'B3',
                   child: Column(
                     children: <Widget>[
-                      TowerItem(color: b3),
+                      TowerItem(image: b3),
                     ],
                   ),
-                  feedback: TowerItem(color: b3),
+                  feedback: TowerItem(image: b3),
                   childWhenDragging: Column(
                     children: <Widget>[
                       TowerItem(),
@@ -214,12 +209,12 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: <Widget>[
                       TowerItem(
-                        color: b4,
+                        image: b4,
                       ),
                     ],
                   ),
                   feedback: TowerItem(
-                    color: b4,
+                    image: b4,
                   ),
                   childWhenDragging: Column(
                     children: <Widget>[
@@ -230,8 +225,8 @@ class _HomePageState extends State<HomePage> {
                     () {},
                   ),
                 ),
-                TowerItem(color: b5),
-                TowerItem(color: b6),
+                TowerItem(image: b5),
+                TowerItem(image: b6),
               ],
             );
           } else if (b5 != null) {
@@ -242,10 +237,10 @@ class _HomePageState extends State<HomePage> {
                   data: 'B5',
                   child: Column(
                     children: <Widget>[
-                      TowerItem(color: b5),
+                      TowerItem(image: b5),
                     ],
                   ),
-                  feedback: TowerItem(color: b5),
+                  feedback: TowerItem(image: b5),
                   childWhenDragging: Column(
                     children: <Widget>[
                       TowerItem(),
@@ -255,7 +250,7 @@ class _HomePageState extends State<HomePage> {
                     () {},
                   ),
                 ),
-                TowerItem(color: b6),
+                TowerItem(image: b6),
               ],
             );
           } else if (b6 != null) {
@@ -267,11 +262,11 @@ class _HomePageState extends State<HomePage> {
                   data: 'B6',
                   child: Column(
                     children: <Widget>[
-                      TowerItem(color: b6),
+                      TowerItem(image: b6),
                     ],
                   ),
                   feedback: TowerItem(
-                    color: b6,
+                    image: b6,
                   ),
                   childWhenDragging: Column(
                     children: <Widget>[
@@ -515,14 +510,23 @@ class _HomePageState extends State<HomePage> {
 class TowerItem extends StatelessWidget {
   const TowerItem({
     Key key,
-    this.color,
+    this.image,
   }) : super(key: key);
 
-  final Color color;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 50, width: 80, color: color != null ? color : Colors.white70);
+      decoration: image != null
+          ? BoxDecoration(
+              image: DecorationImage(
+              image: AssetImage(image),
+              fit: BoxFit.fill,
+            ))
+          : BoxDecoration(),
+      height: 50,
+      width: 80,
+    );
   }
 }
