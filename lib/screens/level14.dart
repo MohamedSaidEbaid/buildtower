@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class Level14 extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _Level14State createState() => _Level14State();
 }
 
-class _HomePageState extends State<HomePage> {
+class _Level14State extends State<Level14> {
   int times = 0;
 
   String a1;
   String a2;
   String a3;
   String a4 = 'assets/orange.png';
-  String a5 = 'assets/red.png';
-  String a6 = 'assets/blue.png';
+  String a5 = 'assets/blue.png';
+  String a6 = 'assets/red.png';
 
-  String b1 = 'assets/red.png';
-  String b2;
-  String b3;
+  String b1;
+  String b2 = 'assets/red.png';
+  String b3 = 'assets/blue.png';
   String b4;
-  String b5 = 'assets/orange.png';
-  String b6 = 'assets/blue.png';
+  String b5;
+  String b6 = 'assets/orange.png';
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,6 @@ class _HomePageState extends State<HomePage> {
                         TowerItem(
                           image: a1,
                         ),
-
                       ],
                     ),
                   ),
@@ -109,7 +108,7 @@ class _HomePageState extends State<HomePage> {
               )),
               child: Center(
                 child: Text(
-                  'Movements $times /3',
+                  'Movements $times /4',
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
                 ),
               ),
@@ -523,7 +522,7 @@ class _HomePageState extends State<HomePage> {
     AlertDialog alert = AlertDialog(
       title: Text("Successful"),
       content: Text(
-        "Result = ${300 / times} %",
+        "Result = ${400 / times} %",
         style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
       ),
       actions: [

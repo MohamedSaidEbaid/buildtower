@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class Level7 extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _Level7State createState() => _Level7State();
 }
 
-class _HomePageState extends State<HomePage> {
+class _Level7State extends State<Level7> {
   int times = 0;
 
-  String a1;
-  String a2;
-  String a3;
-  String a4 = 'assets/orange.png';
-  String a5 = 'assets/red.png';
-  String a6 = 'assets/blue.png';
+  String a1 = 'assets/red.png';
+  String a2 = 'assets/blue.png';
+  String a3 = 'assets/orange.png';
+  String a4;
+  String a5;
+  String a6;
 
-  String b1 = 'assets/red.png';
+  String b1;
   String b2;
   String b3;
-  String b4;
-  String b5 = 'assets/orange.png';
-  String b6 = 'assets/blue.png';
+  String b4 = 'assets/orange.png';
+  String b5 = 'assets/blue.png';
+  String b6 = 'assets/red.png';
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,6 @@ class _HomePageState extends State<HomePage> {
                         TowerItem(
                           image: a1,
                         ),
-
                       ],
                     ),
                   ),

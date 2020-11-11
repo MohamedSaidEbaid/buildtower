@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class Level5 extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _Level5State createState() => _Level5State();
 }
 
-class _HomePageState extends State<HomePage> {
+class _Level5State extends State<Level5> {
   int times = 0;
 
-  String a1;
-  String a2;
-  String a3;
-  String a4 = 'assets/orange.png';
-  String a5 = 'assets/red.png';
-  String a6 = 'assets/blue.png';
+  String a1 = 'assets/red.png';
+  String a2 = 'assets/orange.png';
+  String a3 = 'assets/blue.png';
+  String a4;
+  String a5;
+  String a6;
 
-  String b1 = 'assets/red.png';
+  String b1 = 'assets/blue.png';
   String b2;
   String b3;
   String b4;
-  String b5 = 'assets/orange.png';
-  String b6 = 'assets/blue.png';
+  String b5 = 'assets/red.png';
+  String b6 = 'assets/orange.png';
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +45,9 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage('assets/small.png'),
-                      fit: BoxFit.fill,
-                    )),
+                          image: AssetImage('assets/small.png'),
+                          fit: BoxFit.fill,
+                        )),
                     child: Column(
                       children: <Widget>[
                         TowerItem(
@@ -61,9 +61,9 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage('assets/mid.png'),
-                      fit: BoxFit.fill,
-                    )),
+                          image: AssetImage('assets/mid.png'),
+                          fit: BoxFit.fill,
+                        )),
                     child: Column(
                       children: <Widget>[
                         TowerItem(
@@ -79,9 +79,9 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage('assets/big.png'),
-                      fit: BoxFit.fill,
-                    )),
+                          image: AssetImage('assets/big.png'),
+                          fit: BoxFit.fill,
+                        )),
                     child: Column(
                       children: <Widget>[
                         TowerItem(
@@ -104,9 +104,9 @@ class _HomePageState extends State<HomePage> {
               height: 60,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                image: AssetImage('assets/movements.png'),
-                fit: BoxFit.fill,
-              )),
+                    image: AssetImage('assets/movements.png'),
+                    fit: BoxFit.fill,
+                  )),
               child: Center(
                 child: Text(
                   'Movements $times /3',
@@ -123,26 +123,26 @@ class _HomePageState extends State<HomePage> {
                       padding: EdgeInsets.all(8),
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                        image: AssetImage('assets/small.png'),
-                        fit: BoxFit.fill,
-                      )),
+                            image: AssetImage('assets/small.png'),
+                            fit: BoxFit.fill,
+                          )),
                       child: _buildDragTarget(b1, 'B1')),
                   Container(
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage('assets/mid.png'),
-                      fit: BoxFit.fill,
-                    )),
+                          image: AssetImage('assets/mid.png'),
+                          fit: BoxFit.fill,
+                        )),
                     child: _buildDragTarget(b2, 'B2'),
                   ),
                   Container(
                     padding: EdgeInsets.all(8),
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage('assets/big.png'),
-                      fit: BoxFit.fill,
-                    )),
+                          image: AssetImage('assets/big.png'),
+                          fit: BoxFit.fill,
+                        )),
                     child: _buildDragTarget(b4, 'B3'),
                   ),
                 ],
@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ), // <-- so it looks like the original view is beeing dragged
               onDraggableCanceled: (v, f) => setState(
-                () {},
+                    () {},
               ),
             );
           }
@@ -197,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ), // <-- so it looks like the original view is beeing dragged
                   onDraggableCanceled: (v, f) => setState(
-                    () {},
+                        () {},
                   ),
                 ),
                 TowerItem(image: b3),
@@ -221,7 +221,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ), // <-- so it looks like the original view is beeing dragged
                   onDraggableCanceled: (v, f) => setState(
-                    () {},
+                        () {},
                   ),
                 ),
               ],
@@ -256,7 +256,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ), // <-- so it looks like the original view is beeing dragged
                   onDraggableCanceled: (v, f) => setState(
-                    () {},
+                        () {},
                   ),
                 ),
                 TowerItem(image: b5),
@@ -281,7 +281,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ), // <-- so it looks like the original view is beeing dragged
                   onDraggableCanceled: (v, f) => setState(
-                    () {},
+                        () {},
                   ),
                 ),
                 TowerItem(image: b6),
@@ -308,7 +308,7 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ), // <-- so it looks like the original view is beeing dragged
                   onDraggableCanceled: (v, f) => setState(
-                    () {},
+                        () {},
                   ),
                 ),
               ],
@@ -554,10 +554,10 @@ class TowerItem extends StatelessWidget {
     return Container(
       decoration: image != null
           ? BoxDecoration(
-              image: DecorationImage(
-              image: AssetImage(image),
-              fit: BoxFit.fill,
-            ))
+          image: DecorationImage(
+            image: AssetImage(image),
+            fit: BoxFit.fill,
+          ))
           : BoxDecoration(),
       height: 50,
       width: 80,

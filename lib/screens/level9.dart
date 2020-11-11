@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class Level9 extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _Level9State createState() => _Level9State();
 }
 
-class _HomePageState extends State<HomePage> {
+class _Level9State extends State<Level9> {
   int times = 0;
 
   String a1;
@@ -53,7 +53,6 @@ class _HomePageState extends State<HomePage> {
                         TowerItem(
                           image: a1,
                         ),
-
                       ],
                     ),
                   ),
